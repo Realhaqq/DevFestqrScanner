@@ -126,11 +126,12 @@ public class ScanActivity extends AppCompatActivity implements ZXingScannerView.
     private void showAlertDialog(String msg) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(msg);
-        builder.setPositiveButton("CLOSE", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton("Scan Again", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
+                Intent intent= new Intent(ScanActivity.this,ScanActivity.class);
+                startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT));
 
-                onBackPressed();
             }
         });
 
